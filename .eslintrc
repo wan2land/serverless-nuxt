@@ -1,0 +1,36 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "rules": {
+    "comma-dangle": ["error", "only-multiline"],
+    "comma-spacing": ["error", {"after": true}],
+    "indent": ["error", 2, {"SwitchCase": 1, "flatTernaryExpressions": true}],
+    "no-use-before-define": ["error", {"functions": false, "classes": false}],
+    "no-trailing-spaces": "error",
+    "semi": ["error", "never"],
+    "@typescript-eslint/indent": ["error", 2, {"SwitchCase": 1, "flatTernaryExpressions": true}],
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "none"
+      },
+      "singleline": {
+        "delimiter": "comma",
+        "requireLast": false
+      },
+      "overrides": {
+        "interface": {
+          "multiline": {
+            "delimiter": "none"
+          }
+        }
+      }
+    }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-parameter-properties": ["error", {"allows": ["public", "public readonly"]}],
+    "@typescript-eslint/no-use-before-define": ["error", {"functions": false, "classes": false}]
+  }
+}

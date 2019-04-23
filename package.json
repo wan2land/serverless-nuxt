@@ -1,0 +1,62 @@
+{
+  "name": "serverless-nuxt",
+  "version": "0.0.1",
+  "description": "Serverless Nuxt",
+  "keywords": [
+    "serverless",
+    "nuxt",
+    "typescript"
+  ],
+  "author": "Cris <corgidisco@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/corgidisco/serverless-nuxt.git"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepack": "npm run test && npm run build",
+    "build": "rimraf ./lib && tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts\" --source-maps inline",
+    "test": "npm run build && npm run test:lint && npm run test:unit",
+    "test:lint": "eslint src/**/*.ts",
+    "test:unit": "jest test"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "[^/]*\\.test.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "dependencies": {
+    "core-js": "^3.0.0",
+    "express": "^4.16.4",
+    "serverless-http": "^2.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/aws-lambda": "^8.10.24",
+    "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^11.13.4",
+    "@typescript-eslint/eslint-plugin": "^1.4.0",
+    "eslint": "^5.14.1",
+    "jest": "^24.1.0",
+    "nuxt": "^2.6.2",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.2.2"
+  }
+}
