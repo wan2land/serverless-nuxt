@@ -20,7 +20,7 @@
     "build": "rimraf ./lib && tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts\" --source-maps inline",
     "test": "npm run build && npm run test:lint && npm run test:unit",
     "test:lint": "eslint src/**/*.ts",
-    "test:unit": "jest test"
+    "test:unit": "jest test --passWithNoTests"
   },
   "jest": {
     "transform": {

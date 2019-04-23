@@ -1,5 +1,7 @@
 *
 !/lib/**/*
 !/src/**/*
+!/plugin/**/*
+
 *.md
 !README.md
