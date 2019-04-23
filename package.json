@@ -1,6 +1,6 @@
 {
   "name": "serverless-nuxt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serverless Nuxt",
   "keywords": [
     "serverless",
@@ -36,8 +36,10 @@
     ]
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "core-js": "^3.0.0",
     "express": "^4.16.4",
+    "globby": "^9.2.0",
     "serverless-http": "^2.0.1"
   },
   "devDependencies": {

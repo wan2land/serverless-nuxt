@@ -5,6 +5,8 @@ import express from "express"
 const { Nuxt } = require("nuxt") // eslint-disable-line
 
 export function createApp(config: any): APIGatewayProxyHandler {
+  config = config.default ? config.default : config
+
   const app = express()
   const nuxt = new Nuxt({
     ...config,
