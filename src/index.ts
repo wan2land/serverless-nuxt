@@ -1,2 +1,2 @@
 
-export * from "./create-app"
+export * from "./create-nuxt-app"
