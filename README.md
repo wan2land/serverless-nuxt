@@ -3,15 +3,14 @@
 Serverless Nuxt
 
 <p>
-  <a href="https://travis-ci.org/corgidisco/safen"><img alt="Build" src="https://img.shields.io/travis/corgidisco/safen.svg" /></a>
-  <a href="https://npmcharts.com/compare/safen?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/safen.svg" /></a>
-  <a href="https://www.npmjs.com/package/safen"><img alt="Version" src="https://img.shields.io/npm/v/safen.svg" /></a>
-  <a href="https://www.npmjs.com/package/safen"><img alt="License" src="https://img.shields.io/npm/l/safen.svg" /></a>
+  <a href="https://npmcharts.com/compare/serverless-nuxt?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/serverless-nuxt.svg" /></a>
+  <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="Version" src="https://img.shields.io/npm/v/serverless-nuxt.svg" /></a>
+  <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="License" src="https://img.shields.io/npm/l/serverless-nuxt.svg" /></a>
   <br />
-  <a href="https://david-dm.org/corgidisco/safen"><img alt="dependencies Status" src="https://david-dm.org/corgidisco/safen/status.svg" /></a>
-  <a href="https://david-dm.org/corgidisco/safen?type=dev"><img alt="devDependencies Status" src="https://david-dm.org/corgidisco/safen/dev-status.svg" /></a>
+  <a href="https://david-dm.org/corgidisco/serverless-nuxt"><img alt="dependencies Status" src="https://david-dm.org/corgidisco/serverless-nuxt/status.svg" /></a>
+  <a href="https://david-dm.org/corgidisco/serverless-nuxt?type=dev"><img alt="devDependencies Status" src="https://david-dm.org/corgidisco/serverless-nuxt/dev-status.svg" /></a>
   <br />
-  <a href="https://www.npmjs.com/package/safen"><img alt="NPM" src="https://nodei.co/npm/safen.png" /></a>
+  <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="NPM" src="https://nodei.co/npm/serverless-nuxt.png" /></a>
 </p>
 
 ## Installation
