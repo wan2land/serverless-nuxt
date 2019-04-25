@@ -69,7 +69,7 @@ functions:
 ```js
 const pkg = require("./package.json")
 
-// `export default` 형식으로 되어있다면 `module.exports =` 으로 변경해야합니다.
+// export default 형식으로 되어있다면 module.exports = 으로 변경해야합니다.
 module.exports = {
   mode: "universal",
   head: {
