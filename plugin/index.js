@@ -47,6 +47,9 @@ class ServerlessNuxtPlugin {
   }
 
   async build() {
+    const provider = this.serverless.getProvider("aws")
+    const awsCredentials = provider.getCredentials()
+
     const config = normlizeConfig(this.serverless.service.custom.nuxt || {})
 
     const servicePath = this.serverless.service.serverless.config.servicePath
@@ -60,7 +63,7 @@ class ServerlessNuxtPlugin {
     let nuxtConfig = require(configPath) // eslint-disable-line
     nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
     nuxtConfig.build = nuxtConfig.build || {}
-    nuxtConfig.build.publicPath = `https://s3.ap-northeast-2.amazonaws.com/${config.bucketName}/${config.version}/`
+    nuxtConfig.build.publicPath = `https://s3.${awsCredentials.region}.amazonaws.com/${config.bucketName}/${config.version}/`
 
     const nuxt = new Nuxt({...nuxtConfig, dev: false})
     const builder = new Builder(nuxt)
