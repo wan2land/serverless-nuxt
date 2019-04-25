@@ -1,22 +1,39 @@
 import { APIGatewayProxyHandler } from "aws-lambda"
+import { createServer, proxy } from "aws-serverless-express"
 import express from "express"
-import sls from "serverless-http"
 
 const { Nuxt } = require("nuxt") // eslint-disable-line
 
-export function createNuxtApp(config: any): APIGatewayProxyHandler {
-  config = config.default ? config.default : config
+export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler {
+  nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
 
   const app = express()
-  const nuxt = new Nuxt({
-    ...config,
-    dev: false,
-  })
-
+  const nuxt = new Nuxt({...nuxtConfig, dev: false})
   app.use(async (req, res) => {
-    await nuxt.ready()
+    if (nuxt.ready) {
+      await nuxt.ready()
+    }
     nuxt.render(req, res)
   })
-
-  return sls(app)
+  const server = createServer(app, void(0), [
+    "application/javascript",
+    "application/json",
+    "application/octet-stream",
+    "application/xml",
+    "font/eot",
+    "font/opentype",
+    "font/otf",
+    "image/jpeg",
+    "image/png",
+    "image/svg+xml",
+    "image/x-icon", // for favicon
+    "text/comma-separated-values",
+    "text/css",
+    "text/html",
+    "text/javascript",
+    "text/plain",
+    "text/text",
+    "text/xml",
+  ])
+  return (event, ctx) => { proxy(server, event, ctx) }
 }

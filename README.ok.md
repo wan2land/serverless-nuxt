@@ -3,7 +3,6 @@
 Serverless Nuxt
 
 <p>
-  <a href="https://travis-ci.org/corgidisco/serverless-nuxt"><img alt="Build" src="https://img.shields.io/travis/corgidisco/serverless-nuxt.svg" /></a>
   <a href="https://npmcharts.com/compare/serverless-nuxt?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/serverless-nuxt.svg" /></a>
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="Version" src="https://img.shields.io/npm/v/serverless-nuxt.svg" /></a>
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="License" src="https://img.shields.io/npm/l/serverless-nuxt.svg" /></a>
@@ -29,7 +28,7 @@ npm i serverless-nuxt
 패키지를 설치한 후, **serverless.yml** 파일을 추가합니다. `serverless-nuxt-example` 부분은 본인의 프로젝트 이름으로 설정합니다.
 클라우드포메이션을 사용하여 `assets` 파일들을 S3 저장소에 업로드합니다. 만약에 이미 만들어놓은 S3 저장소가 있다면 `resources`에 해당하는 부분은 삭제해주시면 됩니다.
 
-플러그인 설정은 `custom.nuxt` 쪽 필드에 작성합니다. 자세한 옵션은 여기를 참고해주세요.
+플러그인 설정은 `custom.nuxt` 필드에 작성합니다. 자세한 옵션은 여기를 참고해주세요.
 
 ```yml
 service:
@@ -43,7 +42,7 @@ resources:
     AssetsBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: serverless-nuxt-example
+        BucketName: ${self:custom.nuxt.bucketName}
 
 provider:
   name: aws
@@ -51,13 +50,11 @@ provider:
   runtime: nodejs8.10
   environment:
     NODE_ENV: ${file(.env.${self:provider.stage}.yml):NODE_ENV}
-    SLS_NUXT: true
-    SLS_NUXT_ASSETS_PATH: https://s3.ap-northeast-2.amazonaws.com/${self:custom.nuxt.bucketName}/${self:provider.stage}/${self:custom.nuxt.version}/
 
 custom:
   nuxt:
     version: v0.0.1-alpha
-    bucketName: serverless-nuxt-example
+    bucketName: serverless-nuxt-example-${self:provider.stage}
 
 functions:
   nuxt:
@@ -67,15 +64,12 @@ functions:
       - http: ANY /{proxy+}
 ```
 
-기존의 Nuxt 설정파일(`nuxt.config.js`)은 다음과 같이 수정해야합니다. `router.base`는 서버리스 stage값에 맞춰서 설정합니다.
-만약에 도메인을 연결했다면 삭제가능합니다.
+기존의 Nuxt 설정파일(`nuxt.config.js`)은 다음 형식에 맞춰서 조금만 수정하시면 됩니다.
 
 ```js
 const pkg = require("./package.json")
 
-const routerBase = process.env.SLS_NUXT ? "/dev/" : "/"
-const assetsPath = process.env.SLS_NUXT_ASSETS_PATH || "/_nuxt/"
-
+// `export default` 형식으로 되어있다면 `module.exports =` 으로 변경해야합니다.
 module.exports = {
   mode: "universal",
   head: {
@@ -89,12 +83,9 @@ module.exports = {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
     ],
   },
-  router: {
-    base: routerBase,
-  },
   build: {
-    publicPath: assetsPath,
-  }
+    // publicPath 값은 플러그인이 서버 설정에 맞춰서 자동 생성합니다.
+  },
 }
 ```
 
@@ -105,6 +96,12 @@ const { createNuxtApp } = require("serverless-nuxt")
 const config = require("./nuxt.config.js")
 
 module.exports.render = createNuxtApp(config)
+```
+
+배포는 다음과 같이 진행하시면 됩니다. 배포시에 서버리스 플러그인이 자동으로 빌드합니다.
+
+```bash
+sls deploy --stage dev
 ```
 
 ## Option
