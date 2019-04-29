@@ -18,6 +18,7 @@ export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler {
   const server = createServer(app, void(0), [
     "application/javascript",
     "application/json",
+    "application/manifest+json",
     "application/octet-stream",
     "application/xml",
     "font/eot",
