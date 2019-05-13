@@ -1,10 +1,10 @@
-import { APIGatewayProxyHandler } from "aws-lambda"
+import { ALBEvent, ALBHandler, APIGatewayProxyEvent, APIGatewayProxyHandler, Context } from "aws-lambda"
 import { createServer, proxy } from "aws-serverless-express"
 import express from "express"
 
 const { Nuxt } = require("nuxt") // eslint-disable-line
 
-export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler {
+export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler | ALBHandler {
   nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
 
   const app = express()
@@ -36,5 +36,7 @@ export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler {
     "text/text",
     "text/xml",
   ])
-  return (event, ctx) => { proxy(server, event, ctx) }
+  return (event: APIGatewayProxyEvent | ALBEvent, ctx: Context) => {
+    proxy(server, event, ctx)
+  }
 }
