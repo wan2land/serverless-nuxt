@@ -53,7 +53,7 @@ class ServerlessNuxtPlugin {
     const config = normlizeConfig(this.serverless.service.custom.nuxt || {})
 
     const servicePath = this.serverless.service.serverless.config.servicePath
-    const configPath = path.resolve(servicePath, "nuxt.config.js")
+    const configPath = path.resolve(servicePath, "nuxt.config")
 
     this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow("build nuxt")}`)
 
