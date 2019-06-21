@@ -130,7 +130,6 @@ custom:
   nuxt:
     version: v1.0.0-alpha
     bucketName:
-    bucketPrefix:
     assetsPath:
 ```
 
@@ -138,7 +137,7 @@ Name                 | Description | Default
 ---------------------| ----------- | ------- |
 version (required)   | version     |
 bucketName (required)| AWS S3 Bucket Name for static files
-bucketPrefix         |  | `""`
+cdnPath              | CDN Path    | `null` 
 assetsPath           |  | `".nuxt/dist/client"`
 
 

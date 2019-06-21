@@ -11,8 +11,8 @@ function normlizeConfig(config) {
   return {
     version: config.version,
     bucketName: config.bucketName,
-    bucketPrefix: config.bucketPreifx || "",
     assetsPath: config.assetsPath || ".nuxt/dist/client",
+    cdnPath: config.cdnPath || null,
   }
 }
 
@@ -64,7 +64,9 @@ class ServerlessNuxtPlugin {
     let nuxtConfig = require(configPath) // eslint-disable-line
     nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
     nuxtConfig.build = nuxtConfig.build || {}
-    nuxtConfig.build.publicPath = `https://s3.${awsCredentials.region}.amazonaws.com/${config.bucketName}/${config.version}/`
+
+    const assetBasePath = config.cdnPath ? config.cdnPath.replace(/\/+$/, "") : `https://s3.${awsCredentials.region}.amazonaws.com/${config.bucketName}`
+    nuxtConfig.build.publicPath = `${assetBasePath}/${config.version}/`
 
     const nuxt = new Nuxt({...nuxtConfig, dev: false})
     const builder = new Builder(nuxt)
@@ -88,7 +90,7 @@ class ServerlessNuxtPlugin {
     this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow("upload asset files")}`)
     const assetsFiles = await globby(assetsPath, {onlyFiles: true})
     await Promise.all(assetsFiles.map((file) => {
-      const fileTargetPath = config.bucketPrefix + [config.version, file.replace(assetsPath, "")].join("/")
+      const fileTargetPath = [config.version, file.replace(assetsPath, "")].join("/")
         .replace(/^\/+|\/+$/, "")
         .replace(/\/+/, "/")
 
