@@ -4,6 +4,7 @@ const path = require("path") // eslint-disable-line
 const fs = require("fs") // eslint-disable-line
 const globby = require("globby") // eslint-disable-line
 const chalk = require("chalk").default // eslint-disable-line
+const mime = require("mime-types") // eslint-disable-line
 const { Nuxt, Builder, Generator } = require("nuxt") // eslint-disable-line
 
 function normlizeConfig(config) {
@@ -96,6 +97,7 @@ class ServerlessNuxtPlugin {
         Key: fileTargetPath,
         Body: fs.readFileSync(file),
         ACL: "public-read",
+        ContentType: mime.lookup(file) || null,
       }).promise()
     }))
   }
