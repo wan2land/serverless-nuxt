@@ -71,7 +71,7 @@ class ServerlessNuxtPlugin {
     const nuxt = new Nuxt({...nuxtConfig, dev: false})
     const builder = new Builder(nuxt)
     if (typeof builder.build === 'function') { // for nuxt v2.9.x
-      builder.build()
+      await builder.build()
     } else {
       const generator = new Generator(nuxt, builder)
       await generator.generate({build: true})

@@ -26,6 +26,16 @@ cd my-nuxt-project
 npm i serverless-nuxt
 ```
 
+**Important**
+
+Lambda has a maximum file size of 256 MB. (cf. [AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html))
+You will need to delete the package files you need during the build process. There is a good package for this.
+
+```bash
+npm i nuxt-start
+npm i nuxt -D
+```
+
 We will touch a total of 3 files. Very easy.
 
 - `serverless.yml`

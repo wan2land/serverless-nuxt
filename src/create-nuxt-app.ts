@@ -2,7 +2,7 @@ import { ALBEvent, ALBHandler, APIGatewayProxyEvent, APIGatewayProxyHandler, Con
 import { createServer, proxy } from "aws-serverless-express"
 import express from "express"
 
-const { Nuxt } = require("nuxt") // eslint-disable-line
+const { Nuxt } = require("nuxt-start") // eslint-disable-line
 
 export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler | ALBHandler {
   nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
