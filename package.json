@@ -7,11 +7,11 @@
     "nuxt",
     "typescript"
   ],
-  "author": "Cris <corgidisco@gmail.com>",
+  "author": "Changwan Jun <wan2land@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/corgidisco/serverless-nuxt.git"
+    "url": "git://github.com/wan2land/serverless-nuxt.git"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

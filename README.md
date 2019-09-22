@@ -7,8 +7,8 @@ Nuxt on AWS(Lambda + S3) with Serverless Framework.
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="Version" src="https://img.shields.io/npm/v/serverless-nuxt.svg" /></a>
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="License" src="https://img.shields.io/npm/l/serverless-nuxt.svg" /></a>
   <br />
-  <a href="https://david-dm.org/corgidisco/serverless-nuxt"><img alt="dependencies Status" src="https://david-dm.org/corgidisco/serverless-nuxt/status.svg" /></a>
-  <a href="https://david-dm.org/corgidisco/serverless-nuxt?type=dev"><img alt="devDependencies Status" src="https://david-dm.org/corgidisco/serverless-nuxt/dev-status.svg" /></a>
+  <a href="https://david-dm.org/wan2land/serverless-nuxt"><img alt="dependencies Status" src="https://david-dm.org/wan2land/serverless-nuxt/status.svg" /></a>
+  <a href="https://david-dm.org/wan2land/serverless-nuxt?type=dev"><img alt="devDependencies Status" src="https://david-dm.org/wan2land/serverless-nuxt/dev-status.svg" /></a>
   <br />
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="NPM" src="https://nodei.co/npm/serverless-nuxt.png" /></a>
 </p>
