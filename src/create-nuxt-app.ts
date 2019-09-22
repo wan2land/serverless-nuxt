@@ -8,7 +8,11 @@ export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler | ALBHand
   nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
 
   const app = express()
-  const nuxt = new Nuxt({...nuxtConfig, dev: false})
+  const nuxt = new Nuxt({
+    ...nuxtConfig,
+    dev: false,
+    _start: true,
+  })
   app.use(async (req, res) => {
     if (nuxt.ready) {
       await nuxt.ready()
