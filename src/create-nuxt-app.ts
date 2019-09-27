@@ -39,6 +39,8 @@ export function createNuxtApp(nuxtConfig: any): APIGatewayProxyHandler | ALBHand
     "text/plain",
     "text/text",
     "text/xml",
+    "application/rss+xml",
+    "application/atom+xml",
   ])
   return (event: APIGatewayProxyEvent | ALBEvent, ctx: Context) => {
     proxy(server, event, ctx)
