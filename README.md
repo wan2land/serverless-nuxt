@@ -1,17 +1,11 @@
 # Serverless Nuxt Plugin
 
-Nuxt on AWS(Lambda + S3) with Serverless Framework.
+[![Downloads](https://img.shields.io/npm/dt/serverless-nuxt.svg?style=flat-square)](https://npmcharts.com/compare/serverless-nuxt?minimal=true)
+[![Version](https://img.shields.io/npm/v/serverless-nuxt.svg?style=flat-square)](https://www.npmjs.com/package/serverless-nuxt)
+[![License](https://img.shields.io/npm/l/serverless-nuxt.svg?style=flat-square)](https://www.npmjs.com/package/serverless-nuxt)
+![Typescript](https://img.shields.io/badge/language-Typescript-007acc.svg?style=flat-square)
 
-<p>
-  <a href="https://npmcharts.com/compare/serverless-nuxt?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/serverless-nuxt.svg" /></a>
-  <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="Version" src="https://img.shields.io/npm/v/serverless-nuxt.svg" /></a>
-  <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="License" src="https://img.shields.io/npm/l/serverless-nuxt.svg" /></a>
-  <br />
-  <a href="https://david-dm.org/wan2land/serverless-nuxt"><img alt="dependencies Status" src="https://david-dm.org/wan2land/serverless-nuxt/status.svg" /></a>
-  <a href="https://david-dm.org/wan2land/serverless-nuxt?type=dev"><img alt="devDependencies Status" src="https://david-dm.org/wan2land/serverless-nuxt/dev-status.svg" /></a>
-  <br />
-  <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="NPM" src="https://nodei.co/npm/serverless-nuxt.png" /></a>
-</p>
+Nuxt on AWS(Lambda + S3) with Serverless Framework.
 
 ## Installation
 
@@ -24,6 +18,7 @@ Install the plug-in in the project directory.
 ```bash
 cd my-nuxt-project
 npm i serverless-nuxt
+npm i serverless-nuxt-plugin -D
 ```
 
 **Important**
@@ -57,7 +52,7 @@ service:
   name: my-nuxt-project
 
 plugins:
-  - serverless-nuxt/plugin
+  - serverless-nuxt-plugin
 
 resources:
   Resources:
