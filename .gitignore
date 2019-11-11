@@ -1,4 +1,6 @@
 /node_modules
-/lib
+
+/packages/*/node_modules
+/packages/*/lib
 
 yarn-error.log
