@@ -36,7 +36,9 @@ npm i nuxt-start
 npm i nuxt -D
 ```
 
-We will touch a total of 3 files. Very easy.
+Then,
+
+We will touch a total of 3 files.
 
 - `serverless.yml`
 - `handler.js`
@@ -74,7 +76,7 @@ resources:
 provider:
   name: aws
   stage: ${opt:stage, 'dev'}
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   environment:
     NODE_ENV: ${file(.env.${self:provider.stage}.yml):NODE_ENV}
 
