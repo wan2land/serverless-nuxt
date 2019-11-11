@@ -1,1 +1,1 @@
-export * from "./create-nuxt-app"
+export * from './create-nuxt-app'
