@@ -4,7 +4,7 @@
   "author": "Changwan Jun <wan2land@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "release": "npm run build && learna publish",
+    "release": "npm run build && lerna publish",
     "build": "lerna run build",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint src/**/*.ts"
