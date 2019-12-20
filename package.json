@@ -10,12 +10,12 @@
     "test:lint": "eslint 'packages/*/src/**/*.{js,ts}' --ignore-pattern node_modules"
   },
   "devDependencies": {
-    "@babel/cli": "7.7.0",
-    "@babel/core": "7.7.2",
-    "@babel/plugin-proposal-class-properties": "7.7.0",
-    "@babel/plugin-proposal-object-rest-spread": "7.6.2",
-    "@babel/preset-env": "7.7.1",
-    "@babel/preset-typescript": "7.7.2",
+    "@babel/cli": "7.7.7",
+    "@babel/core": "7.7.7",
+    "@babel/plugin-proposal-class-properties": "7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.7.7",
+    "@babel/preset-env": "7.7.7",
+    "@babel/preset-typescript": "7.7.7",
     "@stdjs/eslint-config": "2.0.0-alpha.3",
     "@types/aws-lambda": "8.10.35",
     "@types/aws-serverless-express": "3.3.1",
