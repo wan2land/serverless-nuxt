@@ -28,6 +28,6 @@
     "nuxt": "2.10.2",
     "rimraf": "2.7.1",
     "ts-jest": "24.1.0",
-    "typescript": "3.7.2"
+    "typescript": "3.7.4"
   }
 }
