@@ -14,7 +14,7 @@
   "main": "src/index.js",
   "dependencies": {
     "chalk": "^3.0.0",
-    "globby": "^10.0.1",
+    "globby": "^11.0.0",
     "mime-types": "^2.1.24"
   }
 }
