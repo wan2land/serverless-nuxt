@@ -1,6 +1,7 @@
 # Serverless Nuxt Plugin
 
 <p>
+  <a href="https://travis-ci.org/wan2land/serverless-nuxt"><img alt="Build" src="https://img.shields.io/travis/wan2land/serverless-nuxt.svg?style=flat-square" /></a>
   <a href="https://npmcharts.com/compare/serverless-nuxt?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/serverless-nuxt.svg?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="Version" src="https://img.shields.io/npm/v/serverless-nuxt.svg?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="License" src="https://img.shields.io/npm/l/serverless-nuxt.svg?style=flat-square" /></a>
@@ -151,12 +152,3 @@ version (required)   | version     |
 bucketName (required)| AWS S3 Bucket Name for static files
 cdnPath              | CDN Path    | `null` 
 assetsPath           |  | `".nuxt/dist/client"`
-
-
-## References
-
-- [Serverless plugin author's cheat sheet](https://gist.github.com/HyperBrain/50d38027a8f57778d5b0f135d80ea406)
-
-## License
-
-MIT
