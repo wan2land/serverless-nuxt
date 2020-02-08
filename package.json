@@ -21,7 +21,7 @@
     "@types/aws-serverless-express": "3.3.3",
     "@types/express": "4.17.2",
     "@types/jest": "24.9.1",
-    "@types/node": "11.15.4",
+    "@types/node": "11.15.5",
     "eslint": "6.8.0",
     "jest": "24.9.0",
     "lerna": "3.20.2",
