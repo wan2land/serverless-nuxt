@@ -1,0 +1,13 @@
+
+language: node_js
+node_js:
+  - 13
+  - 12
+  - 10
+
+install:
+  - npm install
+  - node_modules/.bin/lerna bootstrap
+
+script:
+  - npm test
