@@ -1,10 +1,10 @@
 
-const path = require("path")
-const fs = require("fs")
-const globby = require("globby")
-const chalk = require("chalk")
-const mime = require("mime-types")
-const { Nuxt, Builder, Generator } = require("nuxt")
+const path = require('path')
+const fs = require('fs')
+const globby = require('globby')
+const chalk = require('chalk')
+const mime = require('mime-types')
+const { Nuxt, Builder, Generator } = require('nuxt')
 
 function normlizeConfig(config) {
   return {
