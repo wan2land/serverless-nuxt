@@ -53,6 +53,20 @@ Add the `serverless.yml` file. The `my-nuxt-project` part is set to your project
 
 Write your plugin settings in the `custom.nuxt` field.  The version(`custom.nuxt.version`) is used as a prefix when uploading assets files to S3. For more options, please see [here](#Options).
 
+`.env.dev.yml`
+
+```yml
+NODE_ENV: 'development'
+```
+
+`.env.prod.yml`
+
+```yml
+NODE_ENV: 'production'
+```
+
+`serverless.yml`
+
 ```yml
 service:
   name: my-nuxt-project
@@ -77,7 +91,7 @@ resources:
 provider:
   name: aws
   stage: ${opt:stage, 'dev'}
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   environment:
     NODE_ENV: ${file(.env.${self:provider.stage}.yml):NODE_ENV}
 
