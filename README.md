@@ -90,6 +90,7 @@ resources:
 
 provider:
   name: aws
+  region: us-east-1 # this field is used for the assets files s3 path.
   stage: ${opt:stage, 'dev'}
   runtime: nodejs12.x
   environment:
