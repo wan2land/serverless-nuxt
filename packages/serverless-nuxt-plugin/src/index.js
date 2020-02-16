@@ -47,8 +47,6 @@ class ServerlessNuxtPlugin {
   }
 
   async build() {
-    const provider = this.serverless.getProvider('aws')
-
     const config = normlizeConfig(this.serverless.service.custom.nuxt || {})
 
     const servicePath = this.serverless.service.serverless.config.servicePath
@@ -63,7 +61,7 @@ class ServerlessNuxtPlugin {
     nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
     nuxtConfig.build = nuxtConfig.build || {}
 
-    const assetBasePath = config.cdnPath ? config.cdnPath.replace(/\/+$/, '') : `https://s3.${provider.getRegion()}.amazonaws.com/${config.bucketName}`
+    const assetBasePath = config.cdnPath ? config.cdnPath.replace(/\/+$/, '') : `https://${config.bucketName}.s3.amazonaws.com`
     nuxtConfig.build.publicPath = `${assetBasePath}/${config.version}/`
 
     const nuxt = new Nuxt({ ...nuxtConfig, dev: false })
