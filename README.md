@@ -13,6 +13,13 @@
 
 Nuxt on AWS(Lambda + S3) with Serverless Framework.
 
+## Version Support
+
+You need to install the plugin version for the serverless version.
+
+- `Serverless@>=1.63` -> `serverless-nuxt-plugin@^1.1`
+- `Serverless@<=1.62` -> `serverless-nuxt-plugin@^1.0`
+
 ## Installation
 
 If you don't have a Nuxt project already, let's create it first. If you have already installed a Nuxt project, you can skip the following.
@@ -150,6 +157,23 @@ Proceed as follows: The serverless plug-in builds automatically at deployment ti
 ```bash
 sls deploy --stage dev
 ```
+
+## Use Custom URL instead of S3 Bucket URL
+
+[READ AWS Document](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access).
+
+Then, change your `serverless.yml` option.
+
+```yml
+
+custom:
+  nuxt:
+    version: v0.0.1-alpha
+    bucketName: my-nuxt-project-${self:provider.stage}
+    cdnPath: https://cdn.myproject.org
+
+```
+
 
 ## Options
 

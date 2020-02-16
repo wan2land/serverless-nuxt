@@ -7,4 +7,4 @@
 
 Nuxt on AWS(Lambda + S3) with Serverless Framework.
 
-[Documentation](https://github.com/wan2land/serverless-nuxt)
+[Read Full Documentation](https://github.com/wan2land/serverless-nuxt)

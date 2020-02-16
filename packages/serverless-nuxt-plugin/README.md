@@ -6,4 +6,11 @@
 
 Serverless Nuxt Plugin on AWS(Lambda + S3).
 
-[Documentation](https://github.com/wan2land/serverless-nuxt)
+[Read Full Documentation](https://github.com/wan2land/serverless-nuxt)
+
+## Version Support
+
+You need to install the plugin version for the serverless version.
+
+- `Serverless@>=1.63` -> `serverless-nuxt-plugin@^1.1`
+- `Serverless@<=1.62` -> `serverless-nuxt-plugin@^1.0`
