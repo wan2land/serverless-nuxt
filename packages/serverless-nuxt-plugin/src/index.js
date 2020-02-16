@@ -20,6 +20,7 @@ class ServerlessNuxtPlugin {
     this.serverless = serverless
     this.options = options || {}
     this.servicePath = this.serverless.service.serverless.config.servicePath
+    this.isUploadedAssets = false
 
     this.commands = {
       nuxt: {
@@ -40,7 +41,8 @@ class ServerlessNuxtPlugin {
 
     this.hooks = {
       'before:package:createDeploymentArtifacts': this.build.bind(this),
-      'after:deploy:deploy': this.upload.bind(this),
+      'after:aws:deploy:deploy:uploadArtifacts': this.afterUploadArtifacts.bind(this),
+      'after:aws:deploy:deploy:updateStack': this.afterUpdateStack.bind(this),
       'nuxt:build': this.build.bind(this),
       'nuxt:upload': this.upload.bind(this),
     }
@@ -74,7 +76,19 @@ class ServerlessNuxtPlugin {
     }
   }
 
-  async upload() {
+  async afterUploadArtifacts() {
+    this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow('after upload artifacts')}`)
+    await this.upload(true)
+  }
+
+  async afterUpdateStack() {
+    this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow('after update stack')}`)
+    if (!this.isUploadedAssets) {
+      await this.upload()
+    }
+  }
+
+  async upload(ignoreBucketExists = false) {
     const provider = this.serverless.getProvider('aws')
     const awsCredentials = provider.getCredentials()
     const s3 = new provider.sdk.S3({
@@ -83,6 +97,18 @@ class ServerlessNuxtPlugin {
     })
 
     const config = normlizeConfig(this.serverless.service.custom.nuxt || {})
+
+    try {
+      await s3.headBucket({
+        Bucket: config.bucketName,
+      }).promise()
+    } catch (e) {
+      if (ignoreBucketExists) {
+        this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow('not found asset bucket')}`)
+        return
+      }
+      throw new Error('not found asset bucket')
+    }
 
     const servicePath = this.serverless.service.serverless.config.servicePath
     const assetsPath = path.resolve(servicePath, config.assetsPath)
@@ -102,6 +128,8 @@ class ServerlessNuxtPlugin {
         ContentType: mime.lookup(file) || null,
       }).promise()
     }))
+
+    this.isUploadedAssets = true
   }
 }
 
