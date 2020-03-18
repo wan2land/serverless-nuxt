@@ -126,7 +126,7 @@ class ServerlessNuxtPlugin {
         Body: fs.readFileSync(file),
         ACL: 'public-read',
         ContentType: mime.lookup(file) || null,
-        CacheControl: 'public, max-age=31536000' // let the browser cache all static files for 1 year since they receive a unique hash by Nuxt
+        CacheControl: 'public, max-age=31536000', // let the browser cache all static files for 1 year since they receive a unique hash by Nuxt
       }).promise()
     }))
 
