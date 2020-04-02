@@ -106,12 +106,16 @@ provider:
 custom:
   nuxt:
     version: v0.0.1-alpha
+    # If the version is defined in the `package.json` file
+    # version: v${file(./package.json):version}
     bucketName: my-nuxt-project-${self:provider.stage}
 
 functions:
   nuxt:
     handler: handler.render
     events:
+      # warm up
+      # - schedule: rate(5 minutes)
       - http: ANY /
       - http: ANY /{proxy+}
 ```
