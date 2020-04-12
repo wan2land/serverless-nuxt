@@ -44,9 +44,7 @@ npm i nuxt-start
 npm i nuxt -D
 ```
 
-Then,
-
-We will touch a total of 3 files.
+Edit the following files:
 
 - `serverless.yml`
 - `handler.js`
@@ -80,6 +78,9 @@ service:
 
 plugins:
   - serverless-nuxt-plugin
+  # Recommended Plugins
+  # - serverless-domain-manager
+  # - serverless-apigw-binary
 
 resources:
   Resources:
@@ -104,18 +105,24 @@ provider:
     NODE_ENV: ${file(.env.${self:provider.stage}.yml):NODE_ENV}
 
 custom:
+  # If the `serverless-domain-manager` plugin is installed ..
+  # customDomain:
+  #   domainName: ${file(.env.${self:provider.stage}.yml):DOMAIN_NAME}
+  # If the `serverless-apigw-binary` plugin is installed ..
+  # apigwBinary:
+  #   types:
+  #     - 'image/*'
   nuxt:
-    version: v0.0.1-alpha
     # If the version is defined in the `package.json` file
     # version: v${file(./package.json):version}
+    version: v0.0.1-alpha
     bucketName: my-nuxt-project-${self:provider.stage}
 
 functions:
   nuxt:
     handler: handler.render
     events:
-      # warm up
-      # - schedule: rate(5 minutes)
+      - schedule: rate(5 minutes) # warm up
       - http: ANY /
       - http: ANY /{proxy+}
 ```
