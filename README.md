@@ -194,6 +194,7 @@ custom:
     version: v1.0.0-alpha
     bucketName:
     assetsPath:
+    assetsCacheMaxAge:
 ```
 
 Name                 | Description | Default
@@ -202,3 +203,4 @@ version (required)   | version     |
 bucketName (required)| AWS S3 Bucket Name for static files
 cdnPath              | CDN Path    | `null` 
 assetsPath           |  | `".nuxt/dist/client"`
+assetsCacheMaxAge    | CacheControl MaxAge to use when uploading assets to S3. Using [ms](https://github.com/zeit/ms#examples). | `365d`

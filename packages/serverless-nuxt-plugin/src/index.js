@@ -4,6 +4,7 @@ const fs = require('fs')
 const globby = require('globby')
 const chalk = require('chalk')
 const mime = require('mime-types')
+const ms = require('ms')
 const { Nuxt, Builder, Generator } = require('nuxt')
 
 function normlizeConfig(config) {
@@ -12,6 +13,7 @@ function normlizeConfig(config) {
     bucketName: config.bucketName,
     assetsPath: config.assetsPath || '.nuxt/dist/client',
     cdnPath: config.cdnPath || null,
+    assetsCacheMaxAge: `${config.assetsCacheMaxAge || '365d'}`,
   }
 }
 
@@ -126,7 +128,7 @@ class ServerlessNuxtPlugin {
         Body: fs.readFileSync(file),
         ACL: 'public-read',
         ContentType: mime.lookup(file) || null,
-        CacheControl: 'public, max-age=31536000', // let the browser cache all static files for 1 year since they receive a unique hash by Nuxt
+        CacheControl: `public, max-age=${Math.floor(ms(config.assetsCacheMaxAge) / 1000)}`, // let the browser cache all static files for 1 year since they receive a unique hash by Nuxt
       }).promise()
     }))
 
