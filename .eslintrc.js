@@ -9,12 +9,9 @@ module.exports = {
     {
       files: ['**/*.ts'],
       extends: [
-        '@stdjs',
-        '@stdjs/eslint-config/typescript',
+        'graphity',
+        'graphity/typescript',
       ],
-      rules: {
-        'import/no-unresolved': 'off',
-      },
       parserOptions: {
         tsconfigRootDir: __dirname,
         project: ['./tsconfig.json'],
@@ -23,7 +20,7 @@ module.exports = {
     {
       files: ['**/*.js'],
       extends: [
-        '@stdjs',
+        'graphity',
       ],
       parserOptions: {
         ecmaVersion: 9,
