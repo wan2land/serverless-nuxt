@@ -1,7 +1,7 @@
 # Serverless Nuxt Plugin
 
 <p>
-  <a href="https://travis-ci.org/wan2land/serverless-nuxt"><img alt="Build" src="https://img.shields.io/travis/wan2land/serverless-nuxt.svg?style=flat-square" /></a>
+  <a href="https://github.com/wan2land/serverless-nuxt/actions?query=workflow%3A%22Node.js+CI%22"><img alt="Build" src="https://img.shields.io/github/workflow/status/wan2land/serverless-nuxt/Node.js%20CI?logo=github&style=flat-square" /></a>
   <a href="https://npmcharts.com/compare/serverless-nuxt?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/serverless-nuxt.svg?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="Version" src="https://img.shields.io/npm/v/serverless-nuxt.svg?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/serverless-nuxt"><img alt="License" src="https://img.shields.io/npm/l/serverless-nuxt.svg?style=flat-square" /></a>
