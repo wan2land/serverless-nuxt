@@ -13,7 +13,7 @@
   "repository": "https://github.com/wan2land/serverless-nuxt",
   "main": "src/index.js",
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "globby": "^11.0.0",
     "mime-types": "^2.1.24"
   }
