@@ -120,7 +120,7 @@ class ServerlessNuxtPlugin {
     await Promise.all(assetsFiles.map((file) => {
       const fileTargetPath = [config.version, file.replace(assetsPath, '')].join('/')
         .replace(/^\/+|\/+$/, '')
-        .replace(/\/+/, '/')
+        .replace(/\/+/g, '/')
 
       return s3.putObject({
         Bucket: config.bucketName,
