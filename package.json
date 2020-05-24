@@ -25,7 +25,7 @@
     "eslint-config-graphity": "0.6.3",
     "eslint-plugin-unicorn": "18.0.1",
     "jest": "25.5.4",
-    "lerna": "3.21.0",
+    "lerna": "3.22.0",
     "nuxt": "2.12.2",
     "rimraf": "3.0.2",
     "ts-jest": "25.5.1",
