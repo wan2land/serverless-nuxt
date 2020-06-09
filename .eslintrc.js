@@ -9,8 +9,8 @@ module.exports = {
     {
       files: ['**/*.ts'],
       extends: [
-        'graphity',
-        'graphity/typescript',
+        'stable',
+        'stable/typescript',
       ],
       parserOptions: {
         tsconfigRootDir: __dirname,
@@ -20,7 +20,7 @@ module.exports = {
     {
       files: ['**/*.js'],
       extends: [
-        'graphity',
+        'stable',
       ],
       parserOptions: {
         ecmaVersion: 9,
