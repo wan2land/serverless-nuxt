@@ -27,9 +27,9 @@ npm i serverless serverless-nuxt-plugin -D
 ## Documents
 
 - [Installation Guide](./docs/installation.md)
-- [Separation of development environment](./doc/separation-of-development-environment.md)
-- [Use Custom URL instead of S3 Bucket URL](./doc/use-custom-url-instead-of-s3-bucket-url.md)
-- [Redirect www URLs to non-www](./doc/redirect-www-urls-to-non-www.md)
+- [Separation of development environment](./docs/separation-of-development-environment.md)
+- [Use Custom URL instead of S3 Bucket URL](./docs/use-custom-url-instead-of-s3-bucket-url.md)
+- [Redirect www URLs to non-www](./docs/redirect-www-urls-to-non-www.md)
 
 ## Options
 
