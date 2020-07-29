@@ -15,8 +15,6 @@ module.exports = {
     NUXT_TELEMETRY_DISABLED: '1',
 
     DOMAIN_HOSTED_ZONE: 'my-nuxt-project.com.', // tailing dot
-    ASSETS_DOMAIN_NAME: 'cdn.dev.my-nuxt-project.com',
-    ASSETS_ACM_ARN: 'arn:aws:acm:us-east-1:000000000000:certificate/00000000-0000-0000-0000-000000000000', // copy ACM Arn
   },
   prod: {
     DOMAIN_NAME: 'my-nuxt-project.com',
@@ -25,8 +23,6 @@ module.exports = {
     NUXT_TELEMETRY_DISABLED: '1',
 
     DOMAIN_HOSTED_ZONE: 'my-nuxt-project.com.', // tailing dot
-    ASSETS_DOMAIN_NAME: 'cdn.my-nuxt-project.com',
-    ASSETS_ACM_ARN: 'arn:aws:acm:us-east-1:000000000000:certificate/00000000-0000-0000-0000-000000000000', // copy ACM Arn
   },
 }
 ```
