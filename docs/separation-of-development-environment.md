@@ -12,7 +12,7 @@ module.exports = {
   },
   dev: {
     DOMAIN_NAME: 'dev.my-nuxt-project.com',
-    NODE_ENV: 'production',
+    NODE_ENV: 'development',
     NUXT_TELEMETRY_DISABLED: '1',
 
     // API_URL: 'https://api.dev.my-nuxt-project.com',
