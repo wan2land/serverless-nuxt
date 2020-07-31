@@ -23,7 +23,7 @@
     "@types/node": "11.15.20",
     "eslint": "7.5.0",
     "eslint-config-stable": "0.8.0",
-    "jest": "26.2.1",
+    "jest": "26.2.2",
     "lerna": "3.22.1",
     "nuxt": "2.14.0",
     "rimraf": "3.0.2",
