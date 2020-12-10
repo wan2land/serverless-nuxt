@@ -16,7 +16,7 @@
     "@babel/plugin-proposal-object-rest-spread": "7.12.1",
     "@babel/preset-env": "7.12.10",
     "@babel/preset-typescript": "7.12.7",
-    "@types/aws-lambda": "8.10.65",
+    "@types/aws-lambda": "8.10.66",
     "@types/aws-serverless-express": "3.3.3",
     "@types/express": "4.17.9",
     "@types/jest": "26.0.18",
