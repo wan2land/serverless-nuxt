@@ -13,6 +13,11 @@
 
 Nuxt on AWS(Lambda + S3) with Serverless Framework.
 
+## Demo
+
+- [serverless-nuxt.dist.be](https://serverless-nuxt.dist.be)
+- [Source](https://github.com/wan2land/serverless-nuxt/tree/example)
+
 ## Installation
 
 Installation is done using the `npm install` command:
