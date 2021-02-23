@@ -1,16 +1,22 @@
 {
-  "name": "serverless-nuxt.dist.be",
+  "name": "serverless-nuxt-sample",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "env-cmd -e local nuxt",
+    "deploy": "env-cmd -e prod sls deploy --stage prod"
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "nuxt-start": "^2.15.2",
+    "serverless-nuxt": "^1.1.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nuxt": "^2.15.2",
+    "serverless": "^2.25.2",
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-domain-manager": "^5.1.0",
+    "serverless-nuxt-plugin": "^1.2.0"
+  }
 }

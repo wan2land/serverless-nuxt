@@ -2,6 +2,8 @@
 
 module.exports = {
   telemetry: false,
+  mode: 'universal',
+  target: 'server',
   head: {
     title: 'serverless-sample',
     meta: [

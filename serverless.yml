@@ -1,0 +1,49 @@
+service: serverless-nuxt
+
+plugins:
+  - serverless-nuxt-plugin
+  - serverless-apigw-binary
+  - serverless-domain-manager
+
+provider:
+  name: aws
+  region: ap-northeast-2 # Region to use
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs12.x
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+    # API_URL: ${env:API_URL} # If you are using the `@nuxtjs/axios` package, you need to set environment variables.
+
+custom:
+  customDomain:
+    domainName: ${env:DOMAIN_NAME}
+  apigwBinary:
+    types:
+      - 'image/*'
+  nuxt:
+    version: v${file(./package.json):version}
+    bucketName: serverless-nuxt-${self:provider.stage} 
+
+resources:
+  Resources:
+    AssetsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.nuxt.bucketName}
+        CorsConfiguration:
+          CorsRules:
+            - AllowedMethods:
+              - GET
+              - HEAD
+              AllowedOrigins:
+              - https://${env:DOMAIN_NAME}
+
+functions:
+  nuxt:
+    timeout: 30
+    handler: handler.render
+    events:
+      # lambda warmer
+      # - schedule: rate(5 minutes)
+      - http: ANY /
+      - http: ANY /{proxy+}
