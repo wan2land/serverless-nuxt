@@ -1,6 +1,6 @@
 # Installation Guide
 
-## Install Nuxt 
+## Install Nuxt
 
 Set up a Nuxt project first. It can also be installed on Nuxt projects already in use.
 
@@ -42,7 +42,6 @@ https://console.aws.amazon.com/acm/home?region=us-east-1#/
 Wait 5 minutes and the **Status** changes to **Issued**. Once you confirm that it has been changed to **Issued**, proceed to the next step.
 
 ![ACM - check status](images/readme2.png)
-
 
 ## Create Files
 
@@ -112,7 +111,7 @@ provider:
   runtime: nodejs12.x
   environment:
     NODE_ENV: ${env:NODE_ENV}
-    API_URL: ${env:API_URL} # If you are using the `@nuxtjs/axios` package, you need to set environment variables.
+    # API_URL: ${env:API_URL} # If you are using the `@nuxtjs/axios` package, you need to set environment variables.
 
 custom:
   customDomain:
@@ -175,7 +174,7 @@ const config = require('./nuxt.config.js')
 module.exports.render = createNuxtApp(config)
 ```
 
-##  Deploy
+## Deploy
 
 Now let's upload the project to AWS.
 
