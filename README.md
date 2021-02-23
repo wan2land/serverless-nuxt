@@ -1,4 +1,6 @@
-# serverless-nuxt.dist.be
+# Serverless Nuxt Example
+
+[Example](https://serverless-nuxt.dist.be/)
 
 ## Build Setup
 
@@ -9,12 +11,6 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+# deploy to aws lambda
+$ npm run deploy
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
