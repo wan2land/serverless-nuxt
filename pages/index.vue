@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    Hello Serverless :-)
+    Hello Nuxt, Hello Serverless :-)
   </div>
 </template>
 

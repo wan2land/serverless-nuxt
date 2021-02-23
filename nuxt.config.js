@@ -2,7 +2,6 @@
 
 module.exports = {
   telemetry: false,
-  mode: 'universal',
   target: 'server',
   head: {
     title: 'serverless-sample',
@@ -25,5 +24,6 @@ module.exports = {
   modules: [
   ],
   build: {
+    publicPath: process.env.SERVERLESS_NUXT_PUBLIC_PATH,
   }
 }
