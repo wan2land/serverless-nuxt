@@ -139,6 +139,7 @@ resources:
 
 functions:
   nuxt:
+    memorySize: 2048
     timeout: 30
     handler: handler.render
     events:
