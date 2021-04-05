@@ -96,8 +96,7 @@ Create a `serverless.yml` file. Use the Cloud Formations to upload **assets**(`.
 Write your plugin settings in the `custom.nuxt` field. The version(`custom.nuxt.version`) is used as a prefix when uploading assets files to S3.
 
 ```yml
-service:
-  name: my-nuxt-project # your project name
+service: my-nuxt-project # your project name
 
 plugins:
   - serverless-nuxt-plugin
