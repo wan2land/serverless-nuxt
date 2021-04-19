@@ -17,7 +17,7 @@
     "build": "rimraf ./lib && tsc && babel ./src --out-dir ./lib --extensions \".ts\" --ignore \"src/**/*.test.ts\""
   },
   "dependencies": {
-    "aws-serverless-express": "^3.3.6",
+    "aws-serverless-express": "^3.4.0",
     "express": "^4.16.4"
   }
 }
