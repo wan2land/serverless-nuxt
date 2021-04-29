@@ -1,11 +1,18 @@
 
-const path = require('path')
+const chalk = require('chalk')
 const fs = require('fs')
 const globby = require('globby')
-const chalk = require('chalk')
 const mime = require('mime-types')
 const ms = require('ms')
 const { Nuxt, Builder, Generator } = require('nuxt')
+const path = require('path')
+
+let BundleBuilder
+try {
+  BundleBuilder = require('@nuxt/webpack').BundleBuilder
+} catch (e) {
+  //
+}
 
 function normlizeConfig(config) {
   return {
@@ -69,8 +76,18 @@ class ServerlessNuxtPlugin {
     let nuxtConfig = require(configPath) // eslint-disable-line
     nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
 
-    const nuxt = new Nuxt({ ...nuxtConfig, dev: false })
-    const builder = new Builder(nuxt)
+    const nuxt = new Nuxt({
+      ...nuxtConfig,
+      server: false,
+      dev: false,
+      _build: true,
+    })
+
+    if (nuxt.ready) {
+      await nuxt.ready()
+    }
+
+    const builder = new Builder(nuxt, BundleBuilder)
     if (typeof builder.build === 'function') { // for nuxt v2.9.x
       await builder.build()
     } else {
