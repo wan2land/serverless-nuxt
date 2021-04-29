@@ -188,3 +188,9 @@ Deploy your project to AWS Lambda using serverless.
 ```bash
 npm run deploy
 ```
+
+## Deploy without Build
+
+```bash
+SERVERLESS_NUXT_SKIP_BUILD=1 npm run deploy
+```

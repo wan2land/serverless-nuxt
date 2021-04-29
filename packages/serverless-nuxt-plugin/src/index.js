@@ -63,8 +63,6 @@ class ServerlessNuxtPlugin {
     const servicePath = this.serverless.service.serverless.config.servicePath
     const configPath = path.resolve(servicePath, 'nuxt.config')
 
-    this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow('build nuxt')}`)
-
     const assetBasePath = config.cdnPath ? config.cdnPath.replace(/\/+$/, '') : `https://${config.bucketName}.s3.amazonaws.com`
     this.serverless.service.provider.environment = Object.assign(this.serverless.service.provider.environment || {}, {
       SERVERLESS_NUXT_PUBLIC_PATH: `${assetBasePath}/${config.version}/`,
@@ -72,6 +70,12 @@ class ServerlessNuxtPlugin {
 
     const env = this.serverless.service.provider.environment || {}
     Object.assign(process.env, env)
+
+    if (process.env.SERVERLESS_NUXT_SKIP_BUILD) {
+      this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow('build nuxt')} ${chalk.green('skip!')}`)
+      return
+    }
+    this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow('build nuxt')}`)
 
     let nuxtConfig = require(configPath) // eslint-disable-line
     nuxtConfig = nuxtConfig.default ? nuxtConfig.default : nuxtConfig
