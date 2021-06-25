@@ -1,11 +1,12 @@
 
 const chalk = require('chalk')
 const fs = require('fs')
-const globby = require('globby')
 const mime = require('mime-types')
 const ms = require('ms')
 const { Nuxt, Builder, Generator } = require('nuxt')
 const path = require('path')
+
+const { traverse } = require('./utils/traverse')
 
 let BundleBuilder
 try {
@@ -138,9 +139,10 @@ class ServerlessNuxtPlugin {
     const assetsPath = path.resolve(servicePath, config.assetsPath)
 
     this.serverless.cli.consoleLog(`Serverless Nuxt Plugin: ${chalk.yellow('upload asset files')}`)
-    const assetsFiles = await globby(assetsPath, { onlyFiles: true })
+    const assetsFiles = await traverse(assetsPath)
     await Promise.all(assetsFiles.map((file) => {
       const fileTargetPath = [config.version, file.replace(assetsPath, '')].join('/')
+        .replace(/\\/g, '/') // for window path separator #311
         .replace(/^\/+|\/+$/, '')
         .replace(/\/+/g, '/')
 
