@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-aws-lambda",
+  "version": "1.1.1",
+  "description": "Nuxt AWS Lambda Handler",
+  "keywords": [
+    "nuxt",
+    "aws",
+    "lambda",
+    "awslambda",
+    "serverless",
+    "vue",
+    "typescript"
+  ],
+  "author": "Changwan Jun <wan2land@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/wan2land/serverless-nuxt",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf ./lib && tsc && babel ./src --out-dir ./lib --extensions \".ts\" --ignore \"src/**/*.test.ts\""
+  },
+  "dependencies": {
+    "@vendia/serverless-express": "^4.3.4"
+  }
+}
