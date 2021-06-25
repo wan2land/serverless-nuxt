@@ -2,6 +2,11 @@
 
 [Example](https://serverless-nuxt.dist.be/)
 
+## Modules
+
+- `@nuxtjs/pwa`
+- `@nuxtjs/tailwindcss`
+
 ## Build Setup
 
 ```bash

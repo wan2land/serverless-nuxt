@@ -1,4 +1,4 @@
-const { createNuxtApp } = require('serverless-nuxt')
+const { createNuxtHandler } = require('nuxt-aws-lambda')
 const config = require('./nuxt.config.js')
 
-module.exports.render = createNuxtApp(config)
+module.exports.render = createNuxtHandler(config)
