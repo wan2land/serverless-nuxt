@@ -7,4 +7,23 @@
 
 Nuxt AWS Lambda Handler.
 
-[Read Full Documentation](https://github.com/wan2land/nuxt-aws-lambda)
+## Used With Serverless Framework
+
+[Read Serverless Nuxt Documentation](https://github.com/wan2land/serverless-nuxt)
+
+## Installation
+
+```bash
+npm i nuxt-aws-lambda
+```
+
+You can write Aws Lambda function like this: 
+
+`handler.js`
+
+```js
+const { createNuxtHandler } = require('nuxt-aws-lambda')
+const config = require('./nuxt.config.js')
+
+module.exports.render = createNuxtHandler(config)
+```

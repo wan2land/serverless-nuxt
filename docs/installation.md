@@ -12,7 +12,7 @@ Install packages in the project directory.
 
 ```bash
 cd my-nuxt-project
-npm i serverless-nuxt
+npm i nuxt-aws-lambda
 npm i serverless serverless-nuxt-plugin serverless-apigw-binary serverless-domain-manager -D
 ```
 
@@ -78,7 +78,7 @@ Check the `package.json` file. Never mind the dependencies version.
   },
   "dependencies": {
     "nuxt-start": "^2.11.0",
-    "serverless-nuxt": "^1"
+    "nuxt-aws-lambda": "^1"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
@@ -167,10 +167,10 @@ module.exports = {
 Finally, the handler(`handler.js`) is written as:
 
 ```js
-const { createNuxtApp } = require('serverless-nuxt')
+const { createNuxtHandler } = require('nuxt-aws-lambda')
 const config = require('./nuxt.config.js')
 
-module.exports.render = createNuxtApp(config)
+module.exports.render = createNuxtHandler(config)
 ```
 
 ## Deploy
