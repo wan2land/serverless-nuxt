@@ -22,6 +22,7 @@ function normlizeConfig(config) {
     assetsPath: config.assetsPath || '.nuxt/dist/client',
     cdnPath: config.cdnPath || null,
     assetsCacheMaxAge: `${config.assetsCacheMaxAge || '365d'}`,
+    acl: config.acl || 'public-read',
   }
 }
 
@@ -150,7 +151,7 @@ class ServerlessNuxtPlugin {
         Bucket: config.bucketName,
         Key: fileTargetPath,
         Body: fs.readFileSync(file),
-        ACL: 'public-read',
+        ACL: config.acl,
         ContentType: mime.lookup(file) || null,
         CacheControl: `public, max-age=${Math.floor(ms(config.assetsCacheMaxAge) / 1000)}`, // let the browser cache all static files for 1 year since they receive a unique hash by Nuxt
       }).promise()
